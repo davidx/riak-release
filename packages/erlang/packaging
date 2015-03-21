@@ -1,13 +1,18 @@
-# abort script on any command that exit with a non zero value
-set -e
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
 
-tar xzf erlang/otp_src_R15B01.tar.gz
+# Detect # of CPUs so make jobs can be parallelized
+CPUS=$(grep -c ^processor /proc/cpuinfo)
+ # Available variables
+# $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
+# $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
+export HOME=/var/vcap
 
-export HOME=/home/vcap
 
-(
-  cd otp_src_R15B01
-  ./configure --prefix=${BOSH_INSTALL_TARGET} --without-termcap
-  make
-  make install
-)
+
+tar xfv erlang/otp_src_R16B03.tar.gz
+cd otp_src_R16B03
+./configure --prefix=${BOSH_INSTALL_TARGET} --without-termcap
+make -j${CPUS} && make install
+# Alternatively, to copy archive contents:
+# cp -a otp_src_R16B03/* $BOSH_INSTALL_TARGET
