@@ -19,3 +19,7 @@ erlang/otp_src_R16B03.tar.gz:
   object_id: f81edec5-3384-4066-8441-635c7261fd0b
   sha: 13c8412eaa3b90524bcb16d03700399d7856329a
   size: 66208591
+git/git-1.9.0.tar.gz:
+  object_id: c2708016-78ad-4db2-9f72-e968b6fa3145
+  sha: e60667fc16e5a5f1cde46616b0458cc802707743
+  size: 4839724
