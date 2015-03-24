@@ -1,5 +1,4 @@
----
+--- 
 name: erlang
-dependencies: []
-files:
-- erlang/otp_src_R16B03.tar.gz
+files: 
+- erlang/otp_src_R15B01.tar.gz
