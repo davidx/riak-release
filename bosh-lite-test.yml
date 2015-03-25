@@ -1,5 +1,5 @@
-name: riak-warden
-director_uuid: 716fa69e-2eb4-4ba8-bfcb-cee50e9236e4
+name: riak-aws
+director_uuid: 42e99fc6-2c3b-4c20-8e72-f843efb25c13
 
 releases:
 - name: riak
@@ -11,7 +11,7 @@ compilation:
   reuse_compilation_vms: true
   cloud_properties:
     name: random
-    instance_type: m1.large
+    instance_type: m1.small
     availability_zone: us-east-1d
     subnet: subnet-6c892647
 update:
@@ -25,7 +25,7 @@ resource_pools:
   network: riak-network
   size: 4
   stemcell:
-    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+    name: bosh-aws-xen-ubuntu-trusty-go_agent
     version: latest
   cloud_properties:
     name: random
